@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BP Seo" default="clean,build" basedir="." description="BP Seo build task">
+    
+    <property file="./build.properties" />
+    
+    <target name="build:plg_system_bpseo">
+        <echo msg="Creating plugin directory" />
+        <mkdir dir="./.build/plg_system_bpseo" />
+        <mkdir dir="./.build/plg_system_bpseo/admin" />
+        <mkdir dir="./.build/plg_system_bpseo/site" />
+        
+        <echo msg="Building plugin installer" />
+        <copy todir="./.build/plg_system_bpseo" >
+            <fileset dir="./plguins/system/bpseo">
+                <include name="**/*" />
+            </fileset>
+            <filterchain>
+                <replacetokens begintoken="${" endtoken="}">
+                    <token key="copyrights" value="${copyrights}" />
+                    <token key="license.name" value="${license.name}" />
+                    <token key="license.url" value="${license.url}" />
+                    <token key="version" value="${version}" />
+                    <token key="author.url" value="${author.url}" />
+                    <token key="author.name" value="${author.name}" />
+                    <token key="author.email" value="${author.email}" />
+                </replacetokens>
+            </filterchain>
+        </copy>
+
+        <echo msg="Creating plugin zipfile." />
+        <zip destfile="./.build/plg_system_bpseo.zip" basedir="./.build/plg_system_bpseo"/>
+    </target>
+    
+    <target name="build">
+        <echo msg="Creating build directory ./.build" />
+        <mkdir dir="./.build" />
+        
+        <echo msg="Building each of the extensions" />
+        <phingcall target="build:plg_system_bpseo"></phingcall>
+        
+    </target>
+
+    <target name="clean">
+        <echo msg="Removing build directory ./.build if exists" />
+        <delete dir="./.build" includeemptydirs="true"/>
+    </target>
+
+</project>
