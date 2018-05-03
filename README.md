@@ -1,2 +1,2 @@
-# plg_system_bpseo
-Joomla SEO plugin
+# BPSeo 
+Joomla system plugin that helps SEO optimization.
