@@ -536,3 +536,4 @@
 /build.properties
 /vendor/**
 /plugins/system/highlight
+/.build/**

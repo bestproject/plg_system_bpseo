@@ -3,6 +3,8 @@
     
     <property file="./build.properties" />
     
+    <php expression="date('F Y')" returnProperty="build.date"/>
+    
     <target name="build:plg_system_bpseo">
         <echo msg="Creating plugin directory" />
         <mkdir dir="./.build/plg_system_bpseo" />
@@ -16,6 +18,7 @@
             </fileset>
             <filterchain>
                 <replacetokens begintoken="${" endtoken="}">
+                    <token key="build.date" value="${build.date}" />
                     <token key="copyrights" value="${copyrights}" />
                     <token key="license.name" value="${license.name}" />
                     <token key="license.url" value="${license.url}" />

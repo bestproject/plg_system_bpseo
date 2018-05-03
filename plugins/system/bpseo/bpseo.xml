@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+	<name>plg_system_bpseo</name>
+	<author>${author.name}</author>
+	<creationDate>${build.date}</creationDate>
+	<copyright>${copyrights}</copyright>
+	<license>${license.url}; see LICENSE.txt</license>
+	<authorEmail>${author.email}</authorEmail>
+	<authorUrl>${author.url}</authorUrl>
+	<version>${build.version}</version>
+	<description>PLG_SYSTEM_HIGHLIGHT_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="bpseo">bpseo.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_bpseo.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_system_bpseo.sys.ini</language>
+	</languages>
+</extension>
